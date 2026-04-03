@@ -1,0 +1,536 @@
+:root {
+    --pink-light: #ffd6e0;
+    --pink-medium: #ffb3c6;
+    --pink-dark: #ff8fab;
+    --white-glow: rgba(255, 255, 255, 0.8);
+    --glass-bg: rgba(255, 255, 255, 0.15);
+    --glass-border: rgba(255, 255, 255, 0.3);
+
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Outfit', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    /* Hide scrollbars for cinematic SPA feel */
+    font-family: var(--font-body);
+    color: #fff;
+    background-color: #000;
+    /* Fallback */
+}
+
+/* Ambient Background */
+.ambient-bg {
+    position: fixed;
+    top: -5%;
+    left: -5%;
+    width: 110%;
+    height: 110%;
+    /* Layered background with aesthetic image and pink overlays */
+    background:
+        linear-gradient(45deg, rgba(255, 179, 198, 0.7) 0%, rgba(255, 214, 224, 0.5) 100%),
+        url('https://images.unsplash.com/photo-1518199266791-5375a28a3061?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat;
+    filter: blur(20px);
+    z-index: -2;
+    animation: slowPan 30s infinite alternate ease-in-out;
+}
+
+@keyframes slowPan {
+    0% {
+        transform: scale(1) translate(0, 0);
+    }
+
+    100% {
+        transform: scale(1.1) translate(-2%, -2%);
+    }
+}
+
+/* Particles Container */
+.particles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.particle {
+    position: absolute;
+    background: radial-gradient(circle, #fff, var(--pink-light));
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.8;
+    }
+
+    80% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-10vh) scale(1);
+        opacity: 0;
+    }
+}
+
+/* Typography */
+.title-large {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.title-large span {
+    font-style: italic;
+    color: #fff;
+    text-shadow: 0 0 20px var(--white-glow);
+}
+
+.title-medium {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-top: 1rem;
+    opacity: 0.9;
+}
+
+.body-text {
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+.glow-text {
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.5), 0 0 30px var(--pink-medium);
+}
+
+/* Glassmorphism & Layouts */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+}
+
+.full-height {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.max-w-lg {
+    max-width: 600px;
+    width: 90%;
+}
+
+.mt-8 {
+    margin-top: 2rem;
+}
+
+.mt-12 {
+    margin-top: 3rem;
+}
+
+.mb-8 {
+    margin-bottom: 2rem;
+}
+
+.mb-4 {
+    margin-bottom: 1rem;
+}
+
+/* Buttons */
+.primary-btn {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid #fff;
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    padding: 12px 30px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+.primary-btn:hover {
+    background: #fff;
+    color: var(--pink-dark);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+    transform: translateY(-2px);
+}
+
+.pulse-glow {
+    animation: pulseGlow 2s infinite;
+}
+
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 15px rgba(161, 80, 142, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+}
+
+.music-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    z-index: 100;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    transition: all 0.3s;
+    color: white;
+}
+
+.music-toggle:hover {
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Scene Transitions */
+.scene {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1),
+        filter 1.2s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: blur(10px);
+    transform: scale(1.05);
+    z-index: 1;
+}
+
+.scene.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+    filter: blur(0);
+    transform: scale(1);
+    z-index: 10;
+}
+
+/* Scene 3: Polaroid Collage */
+.collage-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.polaroid {
+    background: #fff;
+    padding: 10px 10px 30px 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.polaroid:hover {
+    transform: scale(1.1) rotate(0deg) !important;
+    z-index: 5;
+    box-shadow: 0 15px 35px rgba(255, 255, 255, 0.4);
+}
+
+.r-left {
+    transform: rotate(-5deg);
+}
+
+.r-right {
+    transform: rotate(5deg);
+}
+
+.polaroid-img {
+    width: 220px;
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    filter: sepia(20%) hue-rotate(-30deg) saturate(120%);
+}
+
+.polaroid-caption {
+    color: #444;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    text-align: center;
+    margin-top: 15px;
+    font-style: italic;
+}
+
+/* Scene 4: Timeline */
+.timeline-container {
+    max-width: 700px;
+    width: 90%;
+    margin: 0 auto;
+    position: relative;
+    padding-left: 30px;
+    border-left: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all 0.8s ease;
+}
+
+.timeline-item.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -37px;
+    top: 15px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 10px #fff, 0 0 20px var(--pink-medium);
+}
+
+.tl-card {
+    padding: 1.5rem;
+    text-align: left;
+}
+
+.tl-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: var(--pink-light);
+}
+
+/* Scene 5: Appreciation */
+.appreciation-list .app-item {
+    font-size: 1.5rem;
+    font-family: var(--font-heading);
+    margin: 20px 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s ease;
+}
+
+.appreciation-list.show .app-item {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Scene 6: Gift Box */
+.gift-container {
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.gift-container:hover {
+    transform: scale(1.05);
+}
+
+.gift {
+    position: relative;
+    width: 150px;
+    height: 120px;
+    margin: 0 auto;
+}
+
+.gift-box-body {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 90px;
+    background: linear-gradient(to right, var(--pink-dark), var(--pink-medium));
+    border-radius: 5px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), inset 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.gift-lid {
+    position: absolute;
+    top: 10px;
+    left: -10px;
+    width: 170px;
+    height: 30px;
+    background: linear-gradient(to right, #ff7096, var(--pink-dark));
+    border-radius: 3px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    transition: transform 0.6s cubic-bezier(0.5, -0.5, 0.5, 1.5);
+    transform-origin: top right;
+}
+
+.gift-bow {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 30px;
+    background: var(--pink-light);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    z-index: 3;
+}
+
+/* When Gift Opens */
+.gift-opened .gift-lid {
+    transform: translateY(-80px) rotate(20deg);
+    opacity: 0;
+}
+
+.gift-opened .gift-box-body {
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.5s ease 0.3s;
+}
+
+.gift-opened .gift-bow {
+    opacity: 0;
+}
+
+.surprise-content {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 1s ease;
+}
+
+.surprise-content.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.hidden {
+    display: none;
+}
+
+#confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999;
+}
+
+/* Utilities */
+.opacity-0 {
+    opacity: 0;
+}
+
+.transition-opacity {
+    transition: opacity 1s ease;
+}
+
+.delay-1 {
+    animation-delay: 0.2s;
+}
+
+.delay-2 {
+    animation-delay: 0.4s;
+}
+
+.delay-3 {
+    animation-delay: 0.6s;
+}
+
+.delay-4 {
+    animation-delay: 0.8s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .title-large {
+        font-size: 2.5rem;
+    }
+
+    .title-medium {
+        font-size: 1.8rem;
+    }
+
+    .polaroid-img {
+        width: 140px;
+        height: 160px;
+    }
+
+    .polaroid-caption {
+        font-size: 0.9rem;
+    }
+
+    .collage-grid {
+        gap: 10px;
+    }
+
+    .appreciation-list .app-item {
+        font-size: 1.1rem;
+    }
+}

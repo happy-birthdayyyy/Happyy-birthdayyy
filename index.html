@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Thalleee 💖</title>
+    <meta name="description" content="A special birthday surprise for Shakuzz">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Ambient Background -->
+    <div class="ambient-bg" id="ambient-bg"></div>
+    <div class="particles-container" id="particles-container"></div>
+
+    <!-- Music Control -->
+    <button id="music-toggle" class="music-toggle glass-btn">
+        <span class="icon">🎶</span>
+    </button>
+
+    <!-- Audio Source -->
+    <audio id="bg-music" loop>
+        <source src="https://image2url.com/r2/default/audio/1775225336589-bd47f68c-81e8-4644-a46a-b9c6cbd5cb8c.mp3"
+            type="audio/mpeg">
+    </audio>
+
+    <!-- Scenes Container -->
+    <main id="app">
+
+        <!-- Scene 1: Landing Page -->
+        <section class="scene active" id="scene-1">
+            <div class="content justify-center align-center full-height text-center overlay-blend">
+                <h1 class="glow-text title-large">Happy Birthday<br><span>Shakuzz</span> 💖</h1>
+                <p class="subtitle fade-in-delay">This is something special for you...</p>
+                <button class="primary-btn pulse-glow mt-8" onclick="nextScene(2, true)">Start Your Surprise 🎁</button>
+            </div>
+        </section>
+
+        <!-- Scene 2: Intro Message Page -->
+        <section class="scene" id="scene-2">
+            <div class="content justify-center align-center full-height">
+                <div class="glass-card max-w-lg text-center">
+                    <p id="typewriter-text" class="body-text"></p>
+                    <button class="primary-btn mt-8 opacity-0 transition-opacity" id="btn-scene-2"
+                        onclick="nextScene(3)">I have something to show you &rarr;</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scene 3: Memory Collage Page -->
+        <section class="scene" id="scene-3">
+            <div class="content justify-center align-center full-height">
+                <h2 class="title-medium text-center mb-8 glow-text">Beautiful Memories</h2>
+                <div class="collage-grid">
+                    <div class="polaroid r-left delay-1">
+                        <div class="polaroid-img" style="background-image: url('https://ibb.co/jP480NzB')">
+                        </div>
+                        <p class="polaroid-caption">“This was the beginning.”</p>
+                    </div>
+                    <div class="polaroid r-right delay-2 pb-up">
+                        <div class="polaroid-img"
+                            style="background-image: url('https://i.ibb.co/WdLKHbP/IMG-20260403-WA0012.webp')"></div>
+                        <p class="polaroid-caption">“This was everything.”</p>
+                    </div>
+                    <div class="polaroid r-left delay-3">
+                        <div class="polaroid-img"
+                            style="background-image: url('https://i.ibb.co/5xR0RJhg/IMG-20260403-WA0013.webp')"></div>
+                        <p class="polaroid-caption">“This is forever.”</p>
+                    </div>
+                </div>
+                <div class="text-center mt-12 delay-4">
+                    <button class="primary-btn" onclick="nextScene(4)">Take a walk in time &rarr;</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scene 4: Moments Timeline Page -->
+        <section class="scene" id="scene-4">
+            <div class="content justify-center full-height">
+                <h2 class="title-medium text-center mb-8 glow-text">Our Journey</h2>
+                <div class="timeline-container">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="glass-card tl-card">
+                            <h3>🌸The Start of Something Real</h3>
+                            <p>It started in 8th grade…
+                                Nothing big, nothing dramatic yk just me and you, talking like it was any normal day.I
+                                didn’t realize it then…but you were slowly becoming someone really important to me.
+                                And somehow…
+                                you stayed.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="glass-card tl-card">
+                            <h3>Just Us Being Us💅🏻😂</h3>
+                            <p>With you, even the smallest things feel special.
+                                The random talks, the stupid jokes,the lesbian allegations😹..the way we laugh for no
+                                reason…
+                                those moments?
+                                they mean more to me than I ever say🎀</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="glass-card tl-card">
+                            <h3>And still.... It's us!🌷</h3>
+                            <p>Not everything stayed the same…
+                                things changed, moments passed,
+                                and life didn’t always go the way we thought it would.
+                                But through all of that…
+                                you stayed with me.
+                                And I don’t think you’ll ever understand
+                                how much that means to me😭🫶🏻</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-12 delay-3">
+                    <button class="primary-btn" onclick="nextScene(5)">Read the letter &rarr;</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scene 5: Our Story Letter -->
+        <section class="scene" id="scene-5">
+            <div class="content justify-center align-center full-height">
+                <div class="glass-card max-w-lg text-center" style="padding: 1rem; overflow-y: auto; max-height: 85vh;">
+                    <img src="https://i.ibb.co/Kx9xNt4t/IMG-20260403-WA0026-1.webp" alt="Our Story Letter"
+                        style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                    <br>
+                    <button class="primary-btn mt-6" onclick="nextScene(6)">Why you matter &rarr;</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scene 6: Appreciation Page -->
+        <section class="scene" id="scene-6">
+            <div class="content justify-center align-center full-height text-center">
+                <h2 class="title-medium glow-text mb-8">More than i ever said..🫶🏻✨...</h2>
+                <div class="appreciation-list">
+                    <p class="app-item"> I don’t think I’ve ever said this the way I should have…</p>
+                    <p class="app-item">but you mean so much more to me than you think.</p>
+                    <p class="app-item">Not just because of the memories,but because of how you make me feel.</p>
+                    <p class="app-item">Safe. Understood. Not alone🤍🌕 And even if I don’t always say it you’re someone
+                        I never want to lose.</p>
+                </div>
+                <button class="primary-btn mt-12 app-btn opacity-0 transition-opacity" onclick="nextScene(7)">I have one
+                    last thing... 🎁</button>
+            </div>
+        </section>
+
+        <!-- Scene 7: Surprise Page -->
+        <section class="scene" id="scene-7">
+            <div class="content justify-center align-center full-height">
+                <div class="gift-container" id="gift-box" onclick="openGift()">
+                    <div class="gift">
+                        <div class="gift-lid"></div>
+                        <div class="gift-box-body"></div>
+                        <div class="gift-bow"></div>
+                    </div>
+                    <p class="click-hint mt-8">Tap this idiot💌</p>
+                </div>
+                <div class="surprise-content hidden" id="surprise-message">
+                    <h2 class="title-large glow-text">Surprise! 🎉</h2>
+                    <p class="body-text mt-4">May all your wishes come true.<br>Here's to a year as amazing as you are!
+                    </p>
+                    <button class="primary-btn mt-8" onclick="nextScene(8)">Continue &rarr;</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scene 8: Final Message -->
+        <section class="scene" id="scene-8">
+            <div class="content justify-center align-center full-height text-center">
+                <div class="glass-card final-card text-center">
+                    <p class="subtitle mb-2" style="font-size: 1.1rem; opacity: 0.8;">Okay enough making you cry 😭
+                        it’s time for something important…</p>
+                    <h1 class="title-large glow-text mb-4">HAPPY BIRTHDAYYYYYY ,<br> OUR GURLLL🧁♥️</h1>
+                    <p class="body-text mb-8">
+                        To the most dramatic, annoying, lovable human ever
+                        life would literally be so boring without you bebb😭🫶🏻 you're becoming tooo oldddd ladyyy....
+                        Look now you're seventeeeeeen😌✨
+                        We hope you laugh more, stress less, and stay the amazing person you are (but maybe be a little
+                        less annoying… just a little 😌 and give my boy a chance😭🫂😂)
+
+
+                        So Happy Birthday sreeekuttyeeeee!!!🌕🩵
+
+
+
+                        We love you so much🌷
+
+                        — From me, Nivegay and your manikutti🤍🫶🏻.</p>
+                    <div class="hearts-row">
+                        💖 ✨ 💖 ✨ 💖
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Canvas for Confetti -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
